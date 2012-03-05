@@ -11,6 +11,9 @@ import org.jdesktop.application.FrameView;
 import org.jdesktop.application.TaskMonitor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -94,6 +97,17 @@ public class MentalHealthLiberiaView extends FrameView {
                 }
             }
         });
+        final MentalHealthLiberiaView parent = this;
+        WindowListener exitListener = new WindowAdapter() {
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                if (parent.saveForm()) {
+                    System.exit(1);
+                }
+            }
+        };
+        getFrame().addWindowListener(exitListener);
     }
 
     @Action
@@ -185,6 +199,39 @@ public class MentalHealthLiberiaView extends FrameView {
         gaf = new javax.swing.JFormattedTextField();
         cage = new javax.swing.JFormattedTextField();
         jLabel11 = new javax.swing.JLabel();
+        diagnosisScrollPane = new javax.swing.JScrollPane();
+        diagnosisPanel = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        moodDisorder = new javax.swing.JList();
+        jLabel29 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        anxietyDisorder = new javax.swing.JList();
+        jLabel31 = new javax.swing.JLabel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        psychoticDisorder = new javax.swing.JList();
+        jLabel33 = new javax.swing.JLabel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        somatoformDisorder = new javax.swing.JList();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        substanceAbuseDisorder = new javax.swing.JList();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        substanceAbuseDisorder2 = new javax.swing.JList();
+        jLabel32 = new javax.swing.JLabel();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        epilepsy = new javax.swing.JList();
+        jLabel34 = new javax.swing.JLabel();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        otherMedicalCondition = new javax.swing.JTextArea();
+        jLabel36 = new javax.swing.JLabel();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        secondaryDiagnosis = new javax.swing.JTextArea();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        diagnosisPrimary = new javax.swing.JList();
+        jLabel12 = new javax.swing.JLabel();
         treatmentOuterPanel = new javax.swing.JPanel();
         treatmentPanel = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
@@ -236,39 +283,6 @@ public class MentalHealthLiberiaView extends FrameView {
         counseling4 = new javax.swing.JRadioButton();
         jLabel13 = new javax.swing.JLabel();
         counseling5 = new javax.swing.JRadioButton();
-        diagnosisScrollPane = new javax.swing.JScrollPane();
-        diagnosisPanel = new javax.swing.JPanel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        moodDisorder = new javax.swing.JList();
-        jLabel29 = new javax.swing.JLabel();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        anxietyDisorder = new javax.swing.JList();
-        jLabel31 = new javax.swing.JLabel();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        psychoticDisorder = new javax.swing.JList();
-        jLabel33 = new javax.swing.JLabel();
-        jScrollPane12 = new javax.swing.JScrollPane();
-        somatoformDisorder = new javax.swing.JList();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        substanceAbuseDisorder = new javax.swing.JList();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        substanceAbuseDisorder2 = new javax.swing.JList();
-        jLabel32 = new javax.swing.JLabel();
-        jScrollPane13 = new javax.swing.JScrollPane();
-        epilepsy = new javax.swing.JList();
-        jLabel34 = new javax.swing.JLabel();
-        jScrollPane14 = new javax.swing.JScrollPane();
-        otherMedicalCondition = new javax.swing.JTextArea();
-        jLabel36 = new javax.swing.JLabel();
-        jScrollPane15 = new javax.swing.JScrollPane();
-        secondaryDiagnosis = new javax.swing.JTextArea();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        diagnosisPrimary = new javax.swing.JList();
-        jLabel12 = new javax.swing.JLabel();
         dischargeOuterPanel = new javax.swing.JPanel();
         dischargePanel = new javax.swing.JPanel();
         jLabel46 = new javax.swing.JLabel();
@@ -846,6 +860,290 @@ public class MentalHealthLiberiaView extends FrameView {
 
         mainPanel.addTab(resourceMap.getString("symptonsOuterPanel.TabConstraints.tabTitle"), symptonsOuterPanel); // NOI18N
 
+        diagnosisScrollPane.setMinimumSize(new java.awt.Dimension(800, 600));
+        diagnosisScrollPane.setName("diagnosisScrollPane"); // NOI18N
+        diagnosisScrollPane.setPreferredSize(new java.awt.Dimension(790, 600));
+
+        diagnosisPanel.setMinimumSize(new java.awt.Dimension(800, 600));
+        diagnosisPanel.setName("diagnosisPanel"); // NOI18N
+        diagnosisPanel.setPreferredSize(new java.awt.Dimension(780, 1300));
+        diagnosisPanel.setLayout(new java.awt.GridBagLayout());
+
+        jLabel27.setFont(resourceMap.getFont("moodDisorderFirstLabel.font")); // NOI18N
+        jLabel27.setText(resourceMap.getString("moodDisorderFirstLabel.text")); // NOI18N
+        jLabel27.setName("moodDisorderFirstLabel"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        diagnosisPanel.add(jLabel27, gridBagConstraints);
+
+        jLabel28.setFont(resourceMap.getFont("moodDisorderSecondLabel.font")); // NOI18N
+        jLabel28.setText(resourceMap.getString("moodDisorderSecondLabel.text")); // NOI18N
+        jLabel28.setName("moodDisorderSecondLabel"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        diagnosisPanel.add(jLabel28, gridBagConstraints);
+
+        jScrollPane7.setMinimumSize(new java.awt.Dimension(313, 300));
+        jScrollPane7.setName("moodDisorderSecond"); // NOI18N
+        jScrollPane7.setPreferredSize(new java.awt.Dimension(241, 300));
+
+        moodDisorder.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Full remission", "Partial remission", "Mild", "Moderate", "Severe without psychotic features", "Severe with psychotic features", "Unspecified", "None" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        moodDisorder.setMaximumSize(new java.awt.Dimension(218, 300));
+        moodDisorder.setMinimumSize(new java.awt.Dimension(218, 300));
+        moodDisorder.setName("moodDisorderSecond"); // NOI18N
+        moodDisorder.setPreferredSize(new java.awt.Dimension(218, 300));
+        jScrollPane7.setViewportView(moodDisorder);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        diagnosisPanel.add(jScrollPane7, gridBagConstraints);
+
+        jLabel29.setFont(resourceMap.getFont("anxietyDisorderLabel.font")); // NOI18N
+        jLabel29.setText(resourceMap.getString("anxietyDisorderLabel.text")); // NOI18N
+        jLabel29.setName("anxietyDisorderLabel"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        diagnosisPanel.add(jLabel29, gridBagConstraints);
+
+        jScrollPane8.setMinimumSize(new java.awt.Dimension(200, 150));
+        jScrollPane8.setName("jScrollPane8"); // NOI18N
+
+        anxietyDisorder.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Generalized anxiety disorder", "Panic disorder with agoraphobia", "Panic disorder without agoraphobia", "Agoraphobia without history of panic disorder", "Specific phobia", "Social phobia", "Obsessive compulsive disorder", "Post-traumatic stress disorder", "Acute stress", "Anxiety disorder due to general medical condition", "Anxiety disorder due to specific medical condition", "Anxiety disorder NOS", "None" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        anxietyDisorder.setName("anxietyDisorder"); // NOI18N
+        jScrollPane8.setViewportView(anxietyDisorder);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        diagnosisPanel.add(jScrollPane8, gridBagConstraints);
+
+        jLabel31.setFont(resourceMap.getFont("psychoticDisorderLabel.font")); // NOI18N
+        jLabel31.setText(resourceMap.getString("psychoticDisorderLabel.text")); // NOI18N
+        jLabel31.setName("psychoticDisorderLabel"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        diagnosisPanel.add(jLabel31, gridBagConstraints);
+
+        jScrollPane10.setMinimumSize(new java.awt.Dimension(200, 150));
+        jScrollPane10.setName("jScrollPane10"); // NOI18N
+
+        psychoticDisorder.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Schizophrenia catatonic type", "Schizophrenia disorganized type", "Schizophrenia paranoid type", "Schizophrenia residual type", "Schizophrenia undifferentiated type", "Schizoaffective disorder", "Brief psychotic disorder", "Psychotic disorder due to medical condition with delusions", "Psychotic disorder due to medical condition with hallucinations", "Psychotic disorder NOS", "None" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        psychoticDisorder.setName("psychoticDisorder"); // NOI18N
+        jScrollPane10.setViewportView(psychoticDisorder);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        diagnosisPanel.add(jScrollPane10, gridBagConstraints);
+
+        jLabel33.setFont(resourceMap.getFont("somatoformDisorderLabel.font")); // NOI18N
+        jLabel33.setText(resourceMap.getString("somatoformDisorderLabel.text")); // NOI18N
+        jLabel33.setName("somatoformDisorderLabel"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        diagnosisPanel.add(jLabel33, gridBagConstraints);
+
+        jScrollPane12.setMinimumSize(new java.awt.Dimension(200, 150));
+        jScrollPane12.setName("jScrollPane12"); // NOI18N
+
+        somatoformDisorder.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Somatization disorder", "Undifferentiated somatoform disorder", "Conversion disorder", "Pain disorder with both psychological factors and general medical condition", "Pain disorder with psychological factors", "Hypochondriasis", "Body dysmorphic disorder", "Somatoform disorder NOS", "None" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        somatoformDisorder.setName("somatoformDisorderLabel"); // NOI18N
+        jScrollPane12.setViewportView(somatoformDisorder);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        diagnosisPanel.add(jScrollPane12, gridBagConstraints);
+
+        jLabel35.setFont(resourceMap.getFont("substanceAbuseFirstLabel.font")); // NOI18N
+        jLabel35.setText(resourceMap.getString("substanceAbuseFirstLabel.text")); // NOI18N
+        jLabel35.setName("substanceAbuseFirstLabel"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        diagnosisPanel.add(jLabel35, gridBagConstraints);
+
+        jLabel30.setFont(resourceMap.getFont("substanceAbuseSecondLabel.font")); // NOI18N
+        jLabel30.setText(resourceMap.getString("substanceAbuseSecondLabel.text")); // NOI18N
+        jLabel30.setName("substanceAbuseSecondLabel"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        diagnosisPanel.add(jLabel30, gridBagConstraints);
+
+        jScrollPane9.setMinimumSize(new java.awt.Dimension(200, 200));
+        jScrollPane9.setName("jScrollPane9"); // NOI18N
+
+        substanceAbuseDisorder.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Alcohol-related disorder", "Cannabis", "Cocaine", "Nicotine dependence", "Opioid", "Sedative-, hypnotic-, or anxiolytic", "None" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        substanceAbuseDisorder.setMinimumSize(new java.awt.Dimension(200, 200));
+        substanceAbuseDisorder.setName("substanceAbuseFirst"); // NOI18N
+        jScrollPane9.setViewportView(substanceAbuseDisorder);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        diagnosisPanel.add(jScrollPane9, gridBagConstraints);
+
+        jScrollPane11.setMinimumSize(new java.awt.Dimension(200, 200));
+        jScrollPane11.setName("jScrollPane11"); // NOI18N
+
+        substanceAbuseDisorder2.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "-induced mood disorder", "-induced psychotic disorder with delusions", "-induced psychotic disorder with hallucinations", "Intoxication", "Withdrawal", "None" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        substanceAbuseDisorder2.setName("substanceAbuseSecond"); // NOI18N
+        jScrollPane11.setViewportView(substanceAbuseDisorder2);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        diagnosisPanel.add(jScrollPane11, gridBagConstraints);
+
+        jLabel32.setFont(resourceMap.getFont("EpilepsyLabel.font")); // NOI18N
+        jLabel32.setText(resourceMap.getString("EpilepsyLabel.text")); // NOI18N
+        jLabel32.setName("EpilepsyLabel"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        diagnosisPanel.add(jLabel32, gridBagConstraints);
+
+        jScrollPane13.setMinimumSize(new java.awt.Dimension(200, 150));
+        jScrollPane13.setName("jScrollPane13"); // NOI18N
+
+        epilepsy.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "With grand mal seizure", "With petit mal seizure", "Without seizure", "None" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        epilepsy.setName("epilepsy"); // NOI18N
+        epilepsy.setPreferredSize(new java.awt.Dimension(200, 200));
+        jScrollPane13.setViewportView(epilepsy);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        diagnosisPanel.add(jScrollPane13, gridBagConstraints);
+
+        jLabel34.setFont(resourceMap.getFont("medicalConditionsLabel.font")); // NOI18N
+        jLabel34.setText(resourceMap.getString("medicalConditionsLabel.text")); // NOI18N
+        jLabel34.setName("medicalConditionsLabel"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 19;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        diagnosisPanel.add(jLabel34, gridBagConstraints);
+
+        jScrollPane14.setName("jScrollPane14"); // NOI18N
+
+        otherMedicalCondition.setColumns(20);
+        otherMedicalCondition.setRows(5);
+        otherMedicalCondition.setName("medicalConditions"); // NOI18N
+        jScrollPane14.setViewportView(otherMedicalCondition);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 20;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        diagnosisPanel.add(jScrollPane14, gridBagConstraints);
+
+        jLabel36.setFont(resourceMap.getFont("secondaryConditionsLabel.font")); // NOI18N
+        jLabel36.setText(resourceMap.getString("secondaryConditionsLabel.text")); // NOI18N
+        jLabel36.setName("secondaryConditionsLabel"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 19;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        diagnosisPanel.add(jLabel36, gridBagConstraints);
+
+        jScrollPane15.setName("jScrollPane15"); // NOI18N
+
+        secondaryDiagnosis.setColumns(20);
+        secondaryDiagnosis.setRows(5);
+        secondaryDiagnosis.setName("secondaryConditions"); // NOI18N
+        jScrollPane15.setViewportView(secondaryDiagnosis);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 20;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        diagnosisPanel.add(jScrollPane15, gridBagConstraints);
+
+        jScrollPane6.setMinimumSize(new java.awt.Dimension(313, 300));
+        jScrollPane6.setName("jScrollPane6"); // NOI18N
+        jScrollPane6.setPreferredSize(new java.awt.Dimension(380, 300));
+
+        diagnosisPrimary.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Major depressive disorder, recurrent", "Bipolar disorder, most recent episode depressed", "Bipolar disorder, most recent episode manic", "Bipolar disorder, most recent episode mixed", "Mood disorder NOS", "Mood disorder due to medical condition", "None" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        diagnosisPrimary.setMaximumSize(new java.awt.Dimension(313, 300));
+        diagnosisPrimary.setMinimumSize(new java.awt.Dimension(313, 300));
+        diagnosisPrimary.setName("moodDisorderFirst"); // NOI18N
+        diagnosisPrimary.setPreferredSize(new java.awt.Dimension(313, 300));
+        jScrollPane6.setViewportView(diagnosisPrimary);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        diagnosisPanel.add(jScrollPane6, gridBagConstraints);
+
+        jLabel12.setFont(resourceMap.getFont("jLabel12.font")); // NOI18N
+        jLabel12.setText(resourceMap.getString("jLabel12.text")); // NOI18N
+        jLabel12.setName("jLabel12"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        diagnosisPanel.add(jLabel12, gridBagConstraints);
+
+        diagnosisScrollPane.setViewportView(diagnosisPanel);
+
+        mainPanel.addTab(resourceMap.getString("diagnosisScrollPane.TabConstraints.tabTitle"), diagnosisScrollPane); // NOI18N
+
         treatmentOuterPanel.setMinimumSize(new java.awt.Dimension(800, 600));
         treatmentOuterPanel.setName("treatmentOuterPanel"); // NOI18N
         treatmentOuterPanel.setPreferredSize(new java.awt.Dimension(800, 600));
@@ -1266,290 +1564,6 @@ public class MentalHealthLiberiaView extends FrameView {
         treatmentOuterPanel.add(treatmentPanel);
 
         mainPanel.addTab(resourceMap.getString("treatmentOuterPanel.TabConstraints.tabTitle"), treatmentOuterPanel); // NOI18N
-
-        diagnosisScrollPane.setMinimumSize(new java.awt.Dimension(800, 600));
-        diagnosisScrollPane.setName("diagnosisScrollPane"); // NOI18N
-        diagnosisScrollPane.setPreferredSize(new java.awt.Dimension(790, 600));
-
-        diagnosisPanel.setMinimumSize(new java.awt.Dimension(800, 600));
-        diagnosisPanel.setName("diagnosisPanel"); // NOI18N
-        diagnosisPanel.setPreferredSize(new java.awt.Dimension(780, 1300));
-        diagnosisPanel.setLayout(new java.awt.GridBagLayout());
-
-        jLabel27.setFont(resourceMap.getFont("moodDisorderFirstLabel.font")); // NOI18N
-        jLabel27.setText(resourceMap.getString("moodDisorderFirstLabel.text")); // NOI18N
-        jLabel27.setName("moodDisorderFirstLabel"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        diagnosisPanel.add(jLabel27, gridBagConstraints);
-
-        jLabel28.setFont(resourceMap.getFont("moodDisorderSecondLabel.font")); // NOI18N
-        jLabel28.setText(resourceMap.getString("moodDisorderSecondLabel.text")); // NOI18N
-        jLabel28.setName("moodDisorderSecondLabel"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        diagnosisPanel.add(jLabel28, gridBagConstraints);
-
-        jScrollPane7.setMinimumSize(new java.awt.Dimension(313, 300));
-        jScrollPane7.setName("moodDisorderSecond"); // NOI18N
-        jScrollPane7.setPreferredSize(new java.awt.Dimension(241, 300));
-
-        moodDisorder.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Full remission", "Partial remission", "Mild", "Moderate", "Severe without psychotic features", "Severe with psychotic features", "Unspecified", "None" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        moodDisorder.setMaximumSize(new java.awt.Dimension(218, 300));
-        moodDisorder.setMinimumSize(new java.awt.Dimension(218, 300));
-        moodDisorder.setName("moodDisorderSecond"); // NOI18N
-        moodDisorder.setPreferredSize(new java.awt.Dimension(218, 300));
-        jScrollPane7.setViewportView(moodDisorder);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        diagnosisPanel.add(jScrollPane7, gridBagConstraints);
-
-        jLabel29.setFont(resourceMap.getFont("anxietyDisorderLabel.font")); // NOI18N
-        jLabel29.setText(resourceMap.getString("anxietyDisorderLabel.text")); // NOI18N
-        jLabel29.setName("anxietyDisorderLabel"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        diagnosisPanel.add(jLabel29, gridBagConstraints);
-
-        jScrollPane8.setMinimumSize(new java.awt.Dimension(200, 150));
-        jScrollPane8.setName("jScrollPane8"); // NOI18N
-
-        anxietyDisorder.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Generalized anxiety disorder", "Panic disorder with agoraphobia", "Panic disorder without agoraphobia", "Agoraphobia without history of panic disorder", "Specific phobia", "Social phobia", "Obsessive compulsive disorder", "Post-traumatic stress disorder", "Acute stress", "Anxiety disorder due to general medical condition", "Anxiety disorder due to specific medical condition", "Anxiety disorder NOS", "None" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        anxietyDisorder.setName("anxietyDisorder"); // NOI18N
-        jScrollPane8.setViewportView(anxietyDisorder);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        diagnosisPanel.add(jScrollPane8, gridBagConstraints);
-
-        jLabel31.setFont(resourceMap.getFont("psychoticDisorderLabel.font")); // NOI18N
-        jLabel31.setText(resourceMap.getString("psychoticDisorderLabel.text")); // NOI18N
-        jLabel31.setName("psychoticDisorderLabel"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        diagnosisPanel.add(jLabel31, gridBagConstraints);
-
-        jScrollPane10.setMinimumSize(new java.awt.Dimension(200, 150));
-        jScrollPane10.setName("jScrollPane10"); // NOI18N
-
-        psychoticDisorder.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Schizophrenia catatonic type", "Schizophrenia disorganized type", "Schizophrenia paranoid type", "Schizophrenia residual type", "Schizophrenia undifferentiated type", "Schizoaffective disorder", "Brief psychotic disorder", "Psychotic disorder due to medical condition with delusions", "Psychotic disorder due to medical condition with hallucinations", "Psychotic disorder NOS", "None" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        psychoticDisorder.setName("psychoticDisorder"); // NOI18N
-        jScrollPane10.setViewportView(psychoticDisorder);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        diagnosisPanel.add(jScrollPane10, gridBagConstraints);
-
-        jLabel33.setFont(resourceMap.getFont("somatoformDisorderLabel.font")); // NOI18N
-        jLabel33.setText(resourceMap.getString("somatoformDisorderLabel.text")); // NOI18N
-        jLabel33.setName("somatoformDisorderLabel"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        diagnosisPanel.add(jLabel33, gridBagConstraints);
-
-        jScrollPane12.setMinimumSize(new java.awt.Dimension(200, 150));
-        jScrollPane12.setName("jScrollPane12"); // NOI18N
-
-        somatoformDisorder.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Somatization disorder", "Undifferentiated somatoform disorder", "Conversion disorder", "Pain disorder with both psychological factors and general medical condition", "Pain disorder with psychological factors", "Hypochondriasis", "Body dysmorphic disorder", "Somatoform disorder NOS", "None" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        somatoformDisorder.setName("somatoformDisorderLabel"); // NOI18N
-        jScrollPane12.setViewportView(somatoformDisorder);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        diagnosisPanel.add(jScrollPane12, gridBagConstraints);
-
-        jLabel35.setFont(resourceMap.getFont("substanceAbuseFirstLabel.font")); // NOI18N
-        jLabel35.setText(resourceMap.getString("substanceAbuseFirstLabel.text")); // NOI18N
-        jLabel35.setName("substanceAbuseFirstLabel"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        diagnosisPanel.add(jLabel35, gridBagConstraints);
-
-        jLabel30.setFont(resourceMap.getFont("substanceAbuseSecondLabel.font")); // NOI18N
-        jLabel30.setText(resourceMap.getString("substanceAbuseSecondLabel.text")); // NOI18N
-        jLabel30.setName("substanceAbuseSecondLabel"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        diagnosisPanel.add(jLabel30, gridBagConstraints);
-
-        jScrollPane9.setMinimumSize(new java.awt.Dimension(200, 200));
-        jScrollPane9.setName("jScrollPane9"); // NOI18N
-
-        substanceAbuseDisorder.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Alcohol-related disorder", "Cannabis", "Cocaine", "Nicotine dependence", "Opioid", "Sedative-, hypnotic-, or anxiolytic", "None" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        substanceAbuseDisorder.setMinimumSize(new java.awt.Dimension(200, 200));
-        substanceAbuseDisorder.setName("substanceAbuseFirst"); // NOI18N
-        jScrollPane9.setViewportView(substanceAbuseDisorder);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        diagnosisPanel.add(jScrollPane9, gridBagConstraints);
-
-        jScrollPane11.setMinimumSize(new java.awt.Dimension(200, 200));
-        jScrollPane11.setName("jScrollPane11"); // NOI18N
-
-        substanceAbuseDisorder2.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "-induced mood disorder", "-induced psychotic disorder with delusions", "-induced psychotic disorder with hallucinations", "Intoxication", "Withdrawal", "None" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        substanceAbuseDisorder2.setName("substanceAbuseSecond"); // NOI18N
-        jScrollPane11.setViewportView(substanceAbuseDisorder2);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        diagnosisPanel.add(jScrollPane11, gridBagConstraints);
-
-        jLabel32.setFont(resourceMap.getFont("EpilepsyLabel.font")); // NOI18N
-        jLabel32.setText(resourceMap.getString("EpilepsyLabel.text")); // NOI18N
-        jLabel32.setName("EpilepsyLabel"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        diagnosisPanel.add(jLabel32, gridBagConstraints);
-
-        jScrollPane13.setMinimumSize(new java.awt.Dimension(200, 150));
-        jScrollPane13.setName("jScrollPane13"); // NOI18N
-
-        epilepsy.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "With grand mal seizure", "With petit mal seizure", "Without seizure", "None" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        epilepsy.setName("epilepsy"); // NOI18N
-        epilepsy.setPreferredSize(new java.awt.Dimension(200, 200));
-        jScrollPane13.setViewportView(epilepsy);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 17;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        diagnosisPanel.add(jScrollPane13, gridBagConstraints);
-
-        jLabel34.setFont(resourceMap.getFont("medicalConditionsLabel.font")); // NOI18N
-        jLabel34.setText(resourceMap.getString("medicalConditionsLabel.text")); // NOI18N
-        jLabel34.setName("medicalConditionsLabel"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 19;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        diagnosisPanel.add(jLabel34, gridBagConstraints);
-
-        jScrollPane14.setName("jScrollPane14"); // NOI18N
-
-        otherMedicalCondition.setColumns(20);
-        otherMedicalCondition.setRows(5);
-        otherMedicalCondition.setName("medicalConditions"); // NOI18N
-        jScrollPane14.setViewportView(otherMedicalCondition);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 20;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        diagnosisPanel.add(jScrollPane14, gridBagConstraints);
-
-        jLabel36.setFont(resourceMap.getFont("secondaryConditionsLabel.font")); // NOI18N
-        jLabel36.setText(resourceMap.getString("secondaryConditionsLabel.text")); // NOI18N
-        jLabel36.setName("secondaryConditionsLabel"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 19;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        diagnosisPanel.add(jLabel36, gridBagConstraints);
-
-        jScrollPane15.setName("jScrollPane15"); // NOI18N
-
-        secondaryDiagnosis.setColumns(20);
-        secondaryDiagnosis.setRows(5);
-        secondaryDiagnosis.setName("secondaryConditions"); // NOI18N
-        jScrollPane15.setViewportView(secondaryDiagnosis);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 20;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        diagnosisPanel.add(jScrollPane15, gridBagConstraints);
-
-        jScrollPane6.setMinimumSize(new java.awt.Dimension(313, 300));
-        jScrollPane6.setName("jScrollPane6"); // NOI18N
-        jScrollPane6.setPreferredSize(new java.awt.Dimension(380, 300));
-
-        diagnosisPrimary.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Major depressive disorder, recurrent", "Bipolar disorder, most recent episode depressed", "Bipolar disorder, most recent episode manic", "Bipolar disorder, most recent episode mixed", "Mood disorder NOS", "Mood disorder due to medical condition", "None" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        diagnosisPrimary.setMaximumSize(new java.awt.Dimension(313, 300));
-        diagnosisPrimary.setMinimumSize(new java.awt.Dimension(313, 300));
-        diagnosisPrimary.setName("moodDisorderFirst"); // NOI18N
-        diagnosisPrimary.setPreferredSize(new java.awt.Dimension(313, 300));
-        jScrollPane6.setViewportView(diagnosisPrimary);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        diagnosisPanel.add(jScrollPane6, gridBagConstraints);
-
-        jLabel12.setFont(resourceMap.getFont("jLabel12.font")); // NOI18N
-        jLabel12.setText(resourceMap.getString("jLabel12.text")); // NOI18N
-        jLabel12.setName("jLabel12"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
-        diagnosisPanel.add(jLabel12, gridBagConstraints);
-
-        diagnosisScrollPane.setViewportView(diagnosisPanel);
-
-        mainPanel.addTab(resourceMap.getString("diagnosisScrollPane.TabConstraints.tabTitle"), diagnosisScrollPane); // NOI18N
 
         dischargeOuterPanel.setMinimumSize(new java.awt.Dimension(800, 600));
         dischargeOuterPanel.setName("dischargeOuterPanel"); // NOI18N
@@ -2191,7 +2205,7 @@ private PatientEncounterForm buildForm() {
     return formData;
 }
 
-private boolean saveForm() {
+public boolean saveForm() {
     Object[] options = {
         "Cancel Action, go back and fix form",
         "Continue without saving the form"

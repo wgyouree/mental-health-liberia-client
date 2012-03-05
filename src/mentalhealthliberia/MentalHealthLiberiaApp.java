@@ -4,12 +4,17 @@
 
 package mentalhealthliberia;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.InputStream;
 import java.util.Properties;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import org.jdesktop.application.Application;
 import org.jdesktop.application.SingleFrameApplication;
 
@@ -22,6 +27,7 @@ public class MentalHealthLiberiaApp extends SingleFrameApplication {
     
     private static String uploadUrl = "http://50.57.158.90:8080/MHL/patientEncounterForm/upload";
     private static String dataDirectory = "";
+    private static String propertiesFilePath = "./app.properties";
     
     private static boolean processConfig(String configPath) {
         try {
@@ -80,8 +86,14 @@ public class MentalHealthLiberiaApp extends SingleFrameApplication {
      * Main method launching the application.
      */
     public static void main(String[] args) {
-        if (processConfig(args[0])) {
+        if (args.length > 0) {
+            propertiesFilePath = args[0];
+        }
+        if (processConfig(propertiesFilePath)) {
             launch(MentalHealthLiberiaApp.class, args);
+        } else {
+            System.err.println("Failed to process the properties file: " + propertiesFilePath);
+            System.exit(-1);
         }
     }
 }
