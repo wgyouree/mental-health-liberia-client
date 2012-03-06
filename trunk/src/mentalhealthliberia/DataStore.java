@@ -116,6 +116,10 @@ public class DataStore {
 
     public boolean saveForm(PatientEncounterForm form) {
         String dataDir = MentalHealthLiberiaApp.getApplication().getDataDirectory();
+        File dataDirFile = new File(dataDir);
+        if (!dataDirFile.exists()) {
+            dataDirFile.mkdir();
+        }
         File directory = new File(dataDir + FORM_DIR);
         if (!directory.exists()) {
             directory.mkdir();

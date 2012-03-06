@@ -380,8 +380,8 @@
                             <StringItem index="0" value="No formal training"/>
                             <StringItem index="1" value="Community health worker training"/>
                             <StringItem index="2" value="Physician&apos;s assistant training"/>
-                            <StringItem index="3" value="General nursing training"/>
-                            <StringItem index="4" value="Psychiatric nurse training"/>
+                            <StringItem index="3" value="General clinician training"/>
+                            <StringItem index="4" value="Psychiatric clinician training"/>
                             <StringItem index="5" value="Other"/>
                             <StringItem index="6" value="No Response"/>
                           </StringArray>

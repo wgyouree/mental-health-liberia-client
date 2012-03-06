@@ -515,7 +515,7 @@ public class MentalHealthLiberiaView extends FrameView {
         jScrollPane1.setName("jScrollPane1"); // NOI18N
 
         clinicianTrainingLevel.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "No formal training", "Community health worker training", "Physician's assistant training", "General nursing training", "Psychiatric nurse training", "Other", "No Response" };
+            String[] strings = { "No formal training", "Community health worker training", "Physician's assistant training", "General clinician training", "Psychiatric clinician training", "Other", "No Response" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
@@ -2253,7 +2253,10 @@ public boolean saveForm() {
     } else {
         choice = JOptionPane.showOptionDialog(
                 this.getFrame(),
-                "An error occurred while saving the form, please try again or save to PDF.",
+                "An error occurred while saving the form, please try again or save to PDF. "
+                + "There may be a problem saving to the 'data' directory. Please find the "
+                + "app.properties file that is being loaded, and check the 'data_dir' property "
+                + "to make sure that it is pointing to a folder that is created.",
                 "Form not completed",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.ERROR_MESSAGE,
