@@ -210,6 +210,10 @@ public class MentalHealthLiberiaView extends FrameView {
         jLabel11 = new javax.swing.JLabel();
         who_das = new javax.swing.JTextField();
         jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        euroqol = new javax.swing.JTextField();
+        jLabel52 = new javax.swing.JLabel();
+        otherSymptomsScore = new javax.swing.JTextField();
         diagnosisScrollPane = new javax.swing.JScrollPane();
         diagnosisPanel = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
@@ -884,6 +888,39 @@ public class MentalHealthLiberiaView extends FrameView {
         gridBagConstraints.gridy = 1;
         symptonsPanel.add(jLabel50, gridBagConstraints);
 
+        jLabel51.setText(resourceMap.getString("jLabel51.text")); // NOI18N
+        jLabel51.setName("jLabel51"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 1;
+        symptonsPanel.add(jLabel51, gridBagConstraints);
+
+        euroqol.setText(resourceMap.getString("euroqol.text")); // NOI18N
+        euroqol.setInputVerifier(new IntegerInputVerifier());
+        euroqol.setName("euroqol"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        symptonsPanel.add(euroqol, gridBagConstraints);
+
+        jLabel52.setText(resourceMap.getString("jLabel52.text")); // NOI18N
+        jLabel52.setName("jLabel52"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 9;
+        symptonsPanel.add(jLabel52, gridBagConstraints);
+
+        otherSymptomsScore.setText(resourceMap.getString("otherSymptomsScore.text")); // NOI18N
+        otherSymptomsScore.setName("otherSymptomsScore"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        symptonsPanel.add(otherSymptomsScore, gridBagConstraints);
+
         symptonsOuterPanel.add(symptonsPanel);
 
         mainPanel.addTab(resourceMap.getString("symptonsOuterPanel.TabConstraints.tabTitle"), symptonsOuterPanel); // NOI18N
@@ -894,7 +931,7 @@ public class MentalHealthLiberiaView extends FrameView {
 
         diagnosisPanel.setMinimumSize(new java.awt.Dimension(800, 600));
         diagnosisPanel.setName("diagnosisPanel"); // NOI18N
-        diagnosisPanel.setPreferredSize(new java.awt.Dimension(780, 1300));
+        diagnosisPanel.setPreferredSize(new java.awt.Dimension(780, 1400));
         diagnosisPanel.setLayout(new java.awt.GridBagLayout());
 
         jLabel27.setFont(resourceMap.getFont("moodDisorderFirstLabel.font")); // NOI18N
@@ -1627,6 +1664,7 @@ public class MentalHealthLiberiaView extends FrameView {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 27;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         treatmentPanel.add(medicationsNotAvailable, gridBagConstraints);
 
@@ -1984,6 +2022,8 @@ private void loadFormValues(PatientEncounterForm formData) {
     this.gaf.setText(formData.getGaf());
     this.cage.setText(formData.getCage());
     this.who_das.setText(formData.getWhoDas());
+    this.euroqol.setText(formData.getEuroqol());
+    this.otherSymptomsScore.setText(formData.getOtherSymptomsScore());
     
     // Diagnosis
     this.diagnosisPrimary.setSelectedIndices(
@@ -2224,6 +2264,8 @@ private PatientEncounterForm buildForm() {
     formData.setGaf(extractValue(this.gaf));
     formData.setCage(extractValue(this.cage));
     formData.setWhoDas(extractValue(this.who_das));
+    formData.setEuroqol(extractValue(this.euroqol));
+    formData.setOtherSymptomsScore(extractValue(this.otherSymptomsScore));
     
     // Diagnosis
     formData.setDiagnosisPrimary(extractValue(this.diagnosisPrimary));
@@ -2427,6 +2469,8 @@ private void clearForm() {
     clearField(this.gaf);
     clearField(this.cage);
     clearField(this.who_das);
+    clearField(this.euroqol);
+    clearField(this.otherSymptomsScore);
 
     // Diagnosis
     clearField(this.diagnosisPrimary);
@@ -2563,6 +2607,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JList education;
     private javax.swing.JList epilepsy;
     private javax.swing.JCheckBox escitalopram;
+    private javax.swing.JTextField euroqol;
     private javax.swing.JList familyPsychoEducation;
     private javax.swing.JCheckBox fluoxetine;
     private javax.swing.JCheckBox fluphenazine;
@@ -2626,6 +2671,8 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -2669,6 +2716,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JTextArea otherMedicalCondition;
     private javax.swing.JCheckBox otherMoodStabilizer;
     private javax.swing.JCheckBox otherSedative;
+    private javax.swing.JTextField otherSymptomsScore;
     private javax.swing.JPanel patientDemographicsOuterPanel;
     private javax.swing.JPanel patientDemographicsPanel;
     private javax.swing.JTextField patientID;

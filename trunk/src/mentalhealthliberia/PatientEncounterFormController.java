@@ -191,6 +191,16 @@ public class PatientEncounterFormController {
         cell = new PdfPCell(new Phrase(formData.getWhoDas()));
         table.addCell(cell);
         
+        cell = new PdfPCell(new Phrase("Euroqol Score"));
+        table.addCell(cell);
+        cell = new PdfPCell(new Phrase(formData.getEuroqol()));
+        table.addCell(cell);
+        
+        cell = new PdfPCell(new Phrase("Other Symptoms Score"));
+        table.addCell(cell);
+        cell = new PdfPCell(new Phrase(formData.getOtherSymptomsScore()));
+        table.addCell(cell);
+        
         return table;
     }
     

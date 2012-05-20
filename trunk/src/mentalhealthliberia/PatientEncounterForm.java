@@ -296,6 +296,14 @@ public class PatientEncounterForm implements Serializable {
     public String getWhoDas() {
         return whoDas;
     }
+    
+    public String getEuroqol() {
+        return this.euroqol;
+    }
+    
+    public String getOtherSymptomsScore() {
+        return this.otherSymptomsScore;
+    }
 
     public void setAge(String age) {
         this.age = age;
@@ -581,6 +589,14 @@ public class PatientEncounterForm implements Serializable {
         this.whoDas = whoDas;
     }
     
+    public void setEuroqol(String euroqol) {
+        this.euroqol = euroqol;
+    }
+    
+    public void setOtherSymptomsScore(String otherSymptomsScore) {
+        this.otherSymptomsScore = otherSymptomsScore;
+    }
+    
     
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -619,6 +635,8 @@ public class PatientEncounterForm implements Serializable {
     private String gaf;
     private String cage;
     private String whoDas;
+    private String euroqol;
+    private String otherSymptomsScore;
     
     // Diagnosis
     private String diagnosisPrimary;
