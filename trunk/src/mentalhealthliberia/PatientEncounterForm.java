@@ -292,6 +292,10 @@ public class PatientEncounterForm implements Serializable {
     public String getMedicationsNotAvailable() {
         return medicationsNotAvailable;
     }
+    
+    public String getWhoDas() {
+        return whoDas;
+    }
 
     public void setAge(String age) {
         this.age = age;
@@ -573,6 +577,10 @@ public class PatientEncounterForm implements Serializable {
         this.medicationsNotAvailable = medicationsNotAvailable;
     }
     
+    public void setWhoDas(String whoDas) {
+        this.whoDas = whoDas;
+    }
+    
     
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -610,6 +618,7 @@ public class PatientEncounterForm implements Serializable {
     private String phq;
     private String gaf;
     private String cage;
+    private String whoDas;
     
     // Diagnosis
     private String diagnosisPrimary;
