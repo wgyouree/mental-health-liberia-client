@@ -288,6 +288,10 @@ public class PatientEncounterForm implements Serializable {
     public boolean getIsDepressionPresent() {
         return isDepressionPresent;
     }
+    
+    public String getMedicationsNotAvailable() {
+        return medicationsNotAvailable;
+    }
 
     public void setAge(String age) {
         this.age = age;
@@ -565,6 +569,10 @@ public class PatientEncounterForm implements Serializable {
         this.isDepressionPresent = isDepressionPresent;
     }
     
+    public void setMedicationsNotAvailable(String medicationsNotAvailable) {
+        this.medicationsNotAvailable = medicationsNotAvailable;
+    }
+    
     
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -651,6 +659,7 @@ public class PatientEncounterForm implements Serializable {
     private String counseling;
     private String individualCounseling;
     private String familyPsychoEducation;
+    private String medicationsNotAvailable;
     
     // Discharge
     private boolean followUpCareMedication;
