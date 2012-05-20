@@ -284,6 +284,10 @@ public class PatientEncounterForm implements Serializable {
     public int getNumberOfSeizuresPerWeek() {
         return numberOfSeizuresPerWeek;
     }
+    
+    public boolean getIsDepressionPresent() {
+        return isDepressionPresent;
+    }
 
     public void setAge(String age) {
         this.age = age;
@@ -556,6 +560,10 @@ public class PatientEncounterForm implements Serializable {
     public void setNumberOfSeizuresPerWeek(int numberOfSeizuresPerWeek) {
         this.numberOfSeizuresPerWeek = numberOfSeizuresPerWeek;
     }
+
+    public void setIsDepressionPresent(boolean isDepressionPresent) {
+        this.isDepressionPresent = isDepressionPresent;
+    }
     
     
     public String toString() {
@@ -605,6 +613,7 @@ public class PatientEncounterForm implements Serializable {
     private String substanceAbuseDisorder2;
     private String epilepsy;
     private int numberOfSeizuresPerWeek;
+    private boolean isDepressionPresent;
     private String otherMedicalCondition;
     private String secondaryDiagnosis;
     
