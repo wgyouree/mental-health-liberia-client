@@ -467,6 +467,11 @@ public class PatientEncounterFormController {
         cell = new PdfPCell(new Phrase(formData.getNumberOfSeizuresPerWeek()));
         table.addCell(cell);
         
+        cell = new PdfPCell(new Phrase("If Epilepsy, Is Depression Present?"));
+        table.addCell(cell);
+        cell = new PdfPCell(new Phrase(booleanToText(formData.getIsDepressionPresent())));
+        table.addCell(cell);
+        
         // Row Five
         cell = new PdfPCell(new Phrase("Relevant Other Medical Conditions"));
         table.addCell(cell);
@@ -479,6 +484,10 @@ public class PatientEncounterFormController {
         table.addCell(cell);
         
         return table;
+    }
+    
+    private String booleanToText(boolean bool) {
+        return bool ? "True" : "False";
     }
     
     private String listAsCSVString(List<String> list) {

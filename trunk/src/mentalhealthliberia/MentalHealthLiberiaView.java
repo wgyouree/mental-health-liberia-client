@@ -243,6 +243,7 @@ public class MentalHealthLiberiaView extends FrameView {
         jLabel12 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         numberOfSeizuresPerWeek = new javax.swing.JTextField();
+        isDepressionPresent = new javax.swing.JCheckBox();
         treatmentOuterPanel = new javax.swing.JPanel();
         treatmentPanel = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
@@ -1075,7 +1076,7 @@ public class MentalHealthLiberiaView extends FrameView {
         jLabel34.setName("medicalConditionsLabel"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 25;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         diagnosisPanel.add(jLabel34, gridBagConstraints);
 
@@ -1088,7 +1089,7 @@ public class MentalHealthLiberiaView extends FrameView {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         diagnosisPanel.add(jScrollPane14, gridBagConstraints);
 
@@ -1097,7 +1098,7 @@ public class MentalHealthLiberiaView extends FrameView {
         jLabel36.setName("secondaryConditionsLabel"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 21;
+        gridBagConstraints.gridy = 25;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         diagnosisPanel.add(jLabel36, gridBagConstraints);
 
@@ -1110,7 +1111,7 @@ public class MentalHealthLiberiaView extends FrameView {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 22;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         diagnosisPanel.add(jScrollPane15, gridBagConstraints);
 
@@ -1160,6 +1161,14 @@ public class MentalHealthLiberiaView extends FrameView {
         gridBagConstraints.gridy = 19;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         diagnosisPanel.add(numberOfSeizuresPerWeek, gridBagConstraints);
+
+        isDepressionPresent.setText(resourceMap.getString("isDepressionPresent.text")); // NOI18N
+        isDepressionPresent.setName("isDepressionPresent"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        diagnosisPanel.add(isDepressionPresent, gridBagConstraints);
 
         diagnosisScrollPane.setViewportView(diagnosisPanel);
 
@@ -2035,6 +2044,7 @@ private void loadFormValues(PatientEncounterForm formData) {
     this.otherMedicalCondition.setText(formData.getOtherMedicalCondition());
     this.secondaryDiagnosis.setText(formData.getSecondaryDiagnosis());
     this.numberOfSeizuresPerWeek.setText("" + formData.getNumberOfSeizuresPerWeek());
+    this.isDepressionPresent.setSelected(formData.getIsDepressionPresent());
     
     // Treatment
     this.fluoxetine.setSelected(formData.isFluoxetine());
@@ -2181,9 +2191,10 @@ private PatientEncounterForm buildForm() {
     formData.setSubstanceAbuseDisorder(extractValue(this.substanceAbuseDisorder));
     formData.setSubstanceAbuseDisorder2(extractValue(this.substanceAbuseDisorder2));
     formData.setEpilepsy(extractValue(this.epilepsy));
+    formData.setNumberOfSeizuresPerWeek(Integer.parseInt(this.numberOfSeizuresPerWeek.getText()));
+    formData.setIsDepressionPresent(this.isDepressionPresent.isSelected());
     formData.setOtherMedicalCondition(extractValue(this.otherMedicalCondition));
     formData.setSecondaryDiagnosis(extractValue(this.secondaryDiagnosis));
-    formData.setNumberOfSeizuresPerWeek(Integer.parseInt(this.numberOfSeizuresPerWeek.getText()));
     
     // Treatment
     formData.setFluoxetine(extractBoolean(this.fluoxetine));
@@ -2381,9 +2392,10 @@ private void clearForm() {
     clearField(this.substanceAbuseDisorder);
     clearField(this.substanceAbuseDisorder2);
     clearField(this.epilepsy);
+    clearField(this.numberOfSeizuresPerWeek);
+    clearField(this.isDepressionPresent);
     clearField(this.otherMedicalCondition);
     clearField(this.secondaryDiagnosis);
-    clearField(this.numberOfSeizuresPerWeek);
 
     //  Treatment
     clearField(this.fluoxetine);
@@ -2520,6 +2532,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JCheckBox haloperidalDecanoatInjection;
     private javax.swing.JCheckBox imipramine;
     private javax.swing.JList individualCounseling;
+    private javax.swing.JCheckBox isDepressionPresent;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
