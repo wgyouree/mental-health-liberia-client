@@ -208,6 +208,8 @@ public class MentalHealthLiberiaView extends FrameView {
         gaf = new javax.swing.JFormattedTextField();
         cage = new javax.swing.JFormattedTextField();
         jLabel11 = new javax.swing.JLabel();
+        who_das = new javax.swing.JTextField();
+        jLabel50 = new javax.swing.JLabel();
         diagnosisScrollPane = new javax.swing.JScrollPane();
         diagnosisPanel = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
@@ -829,6 +831,7 @@ public class MentalHealthLiberiaView extends FrameView {
 
         phq.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         phq.setText(resourceMap.getString("phq.text")); // NOI18N
+        phq.setInputVerifier(new IntegerInputVerifier());
         phq.setName("phq"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -838,6 +841,7 @@ public class MentalHealthLiberiaView extends FrameView {
 
         gaf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         gaf.setText(resourceMap.getString("gaf.text")); // NOI18N
+        gaf.setInputVerifier(new IntegerInputVerifier());
         gaf.setName("gaf"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -847,6 +851,7 @@ public class MentalHealthLiberiaView extends FrameView {
 
         cage.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         cage.setText(resourceMap.getString("cage.text")); // NOI18N
+        cage.setInputVerifier(new IntegerInputVerifier());
         cage.setName("cage"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
@@ -860,8 +865,24 @@ public class MentalHealthLiberiaView extends FrameView {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridwidth = 7;
         symptonsPanel.add(jLabel11, gridBagConstraints);
+
+        who_das.setText(resourceMap.getString("who_das.text")); // NOI18N
+        who_das.setInputVerifier(new IntegerInputVerifier());
+        who_das.setName("who_das"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        symptonsPanel.add(who_das, gridBagConstraints);
+
+        jLabel50.setText(resourceMap.getString("jLabel50.text")); // NOI18N
+        jLabel50.setName("jLabel50"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 1;
+        symptonsPanel.add(jLabel50, gridBagConstraints);
 
         symptonsOuterPanel.add(symptonsPanel);
 
@@ -1962,6 +1983,7 @@ private void loadFormValues(PatientEncounterForm formData) {
     this.phq.setText(formData.getPhq());
     this.gaf.setText(formData.getGaf());
     this.cage.setText(formData.getCage());
+    this.who_das.setText(formData.getWhoDas());
     
     // Diagnosis
     this.diagnosisPrimary.setSelectedIndices(
@@ -2201,6 +2223,7 @@ private PatientEncounterForm buildForm() {
     formData.setPhq(extractValue(this.phq));
     formData.setGaf(extractValue(this.gaf));
     formData.setCage(extractValue(this.cage));
+    formData.setWhoDas(extractValue(this.who_das));
     
     // Diagnosis
     formData.setDiagnosisPrimary(extractValue(this.diagnosisPrimary));
@@ -2403,6 +2426,7 @@ private void clearForm() {
     clearField(this.phq);
     clearField(this.gaf);
     clearField(this.cage);
+    clearField(this.who_das);
 
     // Diagnosis
     clearField(this.diagnosisPrimary);
@@ -2601,6 +2625,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -2676,6 +2701,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JPanel treatmentPanel;
     private javax.swing.JCheckBox trihexyphenidyl;
     private javax.swing.JMenuItem uploadMenuItem;
+    private javax.swing.JTextField who_das;
     // End of variables declaration//GEN-END:variables
 
     private final Timer messageTimer;

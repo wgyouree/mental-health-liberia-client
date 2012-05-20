@@ -186,6 +186,11 @@ public class PatientEncounterFormController {
         cell = new PdfPCell(new Phrase(formData.getCage()));
         table.addCell(cell);
         
+        cell = new PdfPCell(new Phrase("WHO-DAS Score"));
+        table.addCell(cell);
+        cell = new PdfPCell(new Phrase(formData.getWhoDas()));
+        table.addCell(cell);
+        
         return table;
     }
     
