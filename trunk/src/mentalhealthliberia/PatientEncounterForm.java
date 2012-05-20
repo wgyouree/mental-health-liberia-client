@@ -101,8 +101,8 @@ public class PatientEncounterForm implements Serializable {
         return education;
     }
 
-    public String getEmploymentStatus() {
-        return employmentStatus;
+    public int getNumberOfDaysInLifeRole() {
+        return numberOfDaysInLifeRole;
     }
 
     public String getEpilepsy() {
@@ -281,6 +281,10 @@ public class PatientEncounterForm implements Serializable {
         return trihexyphenidyl;
     }
 
+    public int getNumberOfSeizuresPerWeek() {
+        return numberOfSeizuresPerWeek;
+    }
+
     public void setAge(String age) {
         this.age = age;
     }
@@ -369,8 +373,8 @@ public class PatientEncounterForm implements Serializable {
         this.education = education;
     }
 
-    public void setEmploymentStatus(String employmentStatus) {
-        this.employmentStatus = employmentStatus;
+    public void setNumberOfDaysInLifeRole(int numberOfDaysInLifeRole) {
+        this.numberOfDaysInLifeRole = numberOfDaysInLifeRole;
     }
 
     public void setEpilepsy(String epilepsy) {
@@ -548,6 +552,11 @@ public class PatientEncounterForm implements Serializable {
     public void setTrihexyphenidyl(boolean trihexyphenidyl) {
         this.trihexyphenidyl = trihexyphenidyl;
     }
+
+    public void setNumberOfSeizuresPerWeek(int numberOfSeizuresPerWeek) {
+        this.numberOfSeizuresPerWeek = numberOfSeizuresPerWeek;
+    }
+    
     
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -577,7 +586,7 @@ public class PatientEncounterForm implements Serializable {
     private String age;
     private String countyOfResidence;
     private String distanceTraveled;
-    private String employmentStatus;
+    private int numberOfDaysInLifeRole;
     private String maritalStatus;
     private String education;
     
@@ -595,6 +604,7 @@ public class PatientEncounterForm implements Serializable {
     private String substanceAbuseDisorder;
     private String substanceAbuseDisorder2;
     private String epilepsy;
+    private int numberOfSeizuresPerWeek;
     private String otherMedicalCondition;
     private String secondaryDiagnosis;
     

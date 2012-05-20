@@ -149,9 +149,9 @@ public class PatientEncounterFormController {
         table.addCell(cell);
         
         // Row Two
-        cell = new PdfPCell(new Phrase("Employment Status"));
+        cell = new PdfPCell(new Phrase("Number of Days in Life Role"));
         table.addCell(cell);
-        cell = new PdfPCell(new Phrase(formData.getEmploymentStatus()));
+        cell = new PdfPCell(new Phrase(formData.getNumberOfDaysInLifeRole()));
         table.addCell(cell);
         
         cell = new PdfPCell(new Phrase("Marital Status"));
@@ -460,6 +460,11 @@ public class PatientEncounterFormController {
         cell = new PdfPCell(new Phrase("Epilepsy"));
         table.addCell(cell);
         cell = new PdfPCell(new Phrase(formData.getEpilepsy()));
+        table.addCell(cell);
+        
+        cell = new PdfPCell(new Phrase("If Epilepsy, Number of Seizures per Week"));
+        table.addCell(cell);
+        cell = new PdfPCell(new Phrase(formData.getNumberOfSeizuresPerWeek()));
         table.addCell(cell);
         
         // Row Five
