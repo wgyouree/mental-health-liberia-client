@@ -295,6 +295,8 @@ public class MentalHealthLiberiaView extends FrameView {
         counseling4 = new javax.swing.JRadioButton();
         jLabel13 = new javax.swing.JLabel();
         counseling5 = new javax.swing.JRadioButton();
+        jLabel22 = new javax.swing.JLabel();
+        medicationsNotAvailable = new javax.swing.JTextField();
         dischargeOuterPanel = new javax.swing.JPanel();
         dischargePanel = new javax.swing.JPanel();
         jLabel46 = new javax.swing.JLabel();
@@ -1591,6 +1593,22 @@ public class MentalHealthLiberiaView extends FrameView {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         treatmentPanel.add(counseling5, gridBagConstraints);
 
+        jLabel22.setText(resourceMap.getString("jLabel22.text")); // NOI18N
+        jLabel22.setName("jLabel22"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 26;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        treatmentPanel.add(jLabel22, gridBagConstraints);
+
+        medicationsNotAvailable.setText(resourceMap.getString("medicationsNotAvailable.text")); // NOI18N
+        medicationsNotAvailable.setName("medicationsNotAvailable"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 27;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        treatmentPanel.add(medicationsNotAvailable, gridBagConstraints);
+
         treatmentOuterPanel.add(treatmentPanel);
 
         mainPanel.addTab(resourceMap.getString("treatmentOuterPanel.TabConstraints.tabTitle"), treatmentOuterPanel); // NOI18N
@@ -2116,6 +2134,8 @@ private void loadFormValues(PatientEncounterForm formData) {
                         "Other",
                         "None"}));
     
+    this.medicationsNotAvailable.setText(formData.getMedicationsNotAvailable());
+    
     // Discharge
     this.followUpCareMedication1.setSelected(false);
     this.followUpCareMedication2.setSelected(false);
@@ -2229,6 +2249,7 @@ private PatientEncounterForm buildForm() {
     formData.setCounseling(extractValue(this.counselingGroup));
     formData.setIndividualCounseling(extractValue(this.individualCounseling));
     formData.setFamilyPsychoEducation(extractValue(this.familyPsychoEducation));
+    formData.setMedicationsNotAvailable(this.medicationsNotAvailable.getText());
     
     // Discharge
     formData.setFollowUpCareMedication(extractBoolean(this.followupCareMedicationsGroup));
@@ -2431,6 +2452,7 @@ private void clearForm() {
     clearField(this.counselingGroup);
     clearField(this.individualCounseling);
     clearField(this.familyPsychoEducation);
+    clearField(this.medicationsNotAvailable);
 
     // Discharge
     clearField(this.followupCareMedicationsGroup);
@@ -2548,6 +2570,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -2608,6 +2631,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JCheckBox lorazepam;
     private javax.swing.JTabbedPane mainPanel;
     private javax.swing.JList maritalStatus;
+    private javax.swing.JTextField medicationsNotAvailable;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JList moodDisorder;
     private javax.swing.JMenuItem newMenuItem;

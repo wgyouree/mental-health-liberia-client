@@ -240,6 +240,11 @@ public class PatientEncounterFormController {
         cell = new PdfPCell(new Phrase(formData.getFamilyPsychoEducation()));
         table.addCell(cell);
         
+        cell = new PdfPCell(new Phrase("Medications Not Available"));
+        table.addCell(cell);
+        cell = new PdfPCell(new Phrase(formData.getMedicationsNotAvailable()));
+        table.addCell(cell);
+        
         return table;
     }
     
