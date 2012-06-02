@@ -57,8 +57,24 @@ public class PatientEncounterForm implements Serializable {
         return clonazepam;
     }
 
-    public String getCounseling() {
-        return counseling;
+    public boolean isCounselingIndividual() {
+        return counselingIndividual;
+    }
+
+    public boolean isCounselingGroup() {
+        return counselingGroup;
+    }
+
+    public boolean isCounselingFamilyPsychoEducational() {
+        return counselingFamilyPsychoEducational;
+    }
+
+    public boolean isCounselingFamilyTherapy() {
+        return counselingFamilyTherapy;
+    }
+
+    public boolean isCounselingNone() {
+        return counselingNone;
     }
 
     public String getCountyOfResidence() {
@@ -101,7 +117,7 @@ public class PatientEncounterForm implements Serializable {
         return education;
     }
 
-    public int getNumberOfDaysInLifeRole() {
+    public String getNumberOfDaysInLifeRole() {
         return numberOfDaysInLifeRole;
     }
 
@@ -237,8 +253,12 @@ public class PatientEncounterForm implements Serializable {
         return psychoticDisorder;
     }
 
-    public String getReasonForVisit() {
-        return reasonForVisit;
+    public boolean isReasonSeekingMentalHealthCare() {
+        return reasonSeekingMentalHealthCare;
+    }
+
+    public boolean isReasonOther() {
+        return reasonOther;
     }
 
     public String getReferralSource() {
@@ -281,12 +301,12 @@ public class PatientEncounterForm implements Serializable {
         return trihexyphenidyl;
     }
 
-    public int getNumberOfSeizuresPerWeek() {
-        return numberOfSeizuresPerWeek;
+    public String getNumberOfSeizuresPerMonth() {
+        return numberOfSeizuresPerMonth;
     }
     
-    public boolean getIsDepressionPresent() {
-        return isDepressionPresent;
+    public String getEpilepticOtherSymptoms() {
+        return epilepticOtherSymptoms;
     }
     
     public String getMedicationsNotAvailable() {
@@ -349,8 +369,24 @@ public class PatientEncounterForm implements Serializable {
         this.clonazepam = clonazepam;
     }
 
-    public void setCounseling(String counseling) {
-        this.counseling = counseling;
+    public void setCounselingIndividual(boolean counselingIndividual) {
+        this.counselingIndividual = counselingIndividual;
+    }
+
+    public void setCounselingGroup(boolean counselingGroup) {
+        this.counselingGroup = counselingGroup;
+    }
+
+    public void setCounselingFamilyPsychoEducational(boolean counselingFamilyPsychoEducational) {
+        this.counselingFamilyPsychoEducational = counselingFamilyPsychoEducational;
+    }
+
+    public void setCounselingFamilyTherapy(boolean counselingFamilyTherapy) {
+        this.counselingFamilyTherapy = counselingFamilyTherapy;
+    }
+
+    public void setCounselingNone(boolean counselingNone) {
+        this.counselingNone = counselingNone;
     }
 
     public void setCountyOfResidence(String countyOfResidence) {
@@ -393,7 +429,7 @@ public class PatientEncounterForm implements Serializable {
         this.education = education;
     }
 
-    public void setNumberOfDaysInLifeRole(int numberOfDaysInLifeRole) {
+    public void setNumberOfDaysInLifeRole(String numberOfDaysInLifeRole) {
         this.numberOfDaysInLifeRole = numberOfDaysInLifeRole;
     }
 
@@ -529,8 +565,12 @@ public class PatientEncounterForm implements Serializable {
         this.psychoticDisorder = psychoticDisorder;
     }
 
-    public void setReasonForVisit(String reasonForVisit) {
-        this.reasonForVisit = reasonForVisit;
+    public void setReasonSeekingMentalHealthCare(boolean reasonSeekingMentalHealthCare) {
+        this.reasonSeekingMentalHealthCare = reasonSeekingMentalHealthCare;
+    }
+
+    public void setReasonOther(boolean reasonOther) {
+        this.reasonOther = reasonOther;
     }
 
     public void setReferralSource(String referralSource) {
@@ -573,12 +613,12 @@ public class PatientEncounterForm implements Serializable {
         this.trihexyphenidyl = trihexyphenidyl;
     }
 
-    public void setNumberOfSeizuresPerWeek(int numberOfSeizuresPerWeek) {
-        this.numberOfSeizuresPerWeek = numberOfSeizuresPerWeek;
+    public void setNumberOfSeizuresPerMonth(String numberOfSeizuresPerMonth) {
+        this.numberOfSeizuresPerMonth = numberOfSeizuresPerMonth;
     }
 
-    public void setIsDepressionPresent(boolean isDepressionPresent) {
-        this.isDepressionPresent = isDepressionPresent;
+    public void setEpilepticOtherSymptoms(String epilepticOtherSymptoms) {
+        this.epilepticOtherSymptoms = epilepticOtherSymptoms;
     }
     
     public void setMedicationsNotAvailable(String medicationsNotAvailable) {
@@ -611,7 +651,8 @@ public class PatientEncounterForm implements Serializable {
     // Basic Information
     private Date dateOfService;
     private String locationOfService;
-    private String reasonForVisit;
+    private boolean reasonSeekingMentalHealthCare;
+    private boolean reasonOther;
     private String clinicianTrainingLevel;
     private String referralSource;
     
@@ -626,7 +667,7 @@ public class PatientEncounterForm implements Serializable {
     private String age;
     private String countyOfResidence;
     private String distanceTraveled;
-    private int numberOfDaysInLifeRole;
+    private String numberOfDaysInLifeRole;
     private String maritalStatus;
     private String education;
     
@@ -647,8 +688,8 @@ public class PatientEncounterForm implements Serializable {
     private String substanceAbuseDisorder;
     private String substanceAbuseDisorder2;
     private String epilepsy;
-    private int numberOfSeizuresPerWeek;
-    private boolean isDepressionPresent;
+    private String numberOfSeizuresPerMonth;
+    private String epilepticOtherSymptoms;
     private String otherMedicalCondition;
     private String secondaryDiagnosis;
     
@@ -683,7 +724,11 @@ public class PatientEncounterForm implements Serializable {
     private boolean otherAntiepileptic;
     private boolean trihexyphenidyl;
     private boolean otherAnticholinergic;
-    private String counseling;
+    private boolean counselingIndividual;
+    private boolean counselingGroup;
+    private boolean counselingFamilyPsychoEducational;
+    private boolean counselingFamilyTherapy;
+    private boolean counselingNone;
     private String individualCounseling;
     private String familyPsychoEducation;
     private String medicationsNotAvailable;

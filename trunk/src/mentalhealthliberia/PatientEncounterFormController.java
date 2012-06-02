@@ -113,7 +113,7 @@ public class PatientEncounterFormController {
         // Row Three
         cell = new PdfPCell(new Phrase("Reason for Visit"));
         table.addCell(cell);
-        cell = new PdfPCell(new Phrase(formData.getReasonForVisit()));
+        cell = new PdfPCell(new Phrase(getReasonForVisit(formData)));
         table.addCell(cell);
         
         cell = new PdfPCell(new Phrase("Referral Source"));
@@ -122,6 +122,19 @@ public class PatientEncounterFormController {
         table.addCell(cell);
         
         return table;
+    }
+    
+    private String getReasonForVisit(PatientEncounterForm formData) {
+        List<String> reasonForVisit = new ArrayList<String>();
+        
+        if (formData.isReasonSeekingMentalHealthCare()) {
+            reasonForVisit.add("Seeking Mental Health Care");
+        }
+        if (formData.isReasonOther()) {
+            reasonForVisit.add("Other");
+        }
+        
+        return listAsCSVString(reasonForVisit);
     }
     
     private PdfPTable createPatientDemographicsTable(PatientEncounterForm formData) {
@@ -242,7 +255,7 @@ public class PatientEncounterFormController {
         // Row Three
         cell = new PdfPCell(new Phrase("Counseling"));
         table.addCell(cell);
-        cell = new PdfPCell(new Phrase(formData.getCounseling()));
+        cell = new PdfPCell(new Phrase(getCounseling(formData)));
         table.addCell(cell);
         
         cell = new PdfPCell(new Phrase("Individual Counseling"));
@@ -261,6 +274,28 @@ public class PatientEncounterFormController {
         table.addCell(cell);
         
         return table;
+    }
+    
+    private String getCounseling(PatientEncounterForm formData) {
+        List<String> counseling = new ArrayList<String>();
+        
+        if (formData.isCounselingIndividual()) {
+            counseling.add("Individual Counseling");
+        }
+        if (formData.isCounselingGroup()) {
+            counseling.add("Group Counseling");
+        }
+        if (formData.isCounselingFamilyPsychoEducational()) {
+            counseling.add("Family Psycho-Educational Counseling");
+        }
+        if (formData.isCounselingFamilyTherapy()) {
+            counseling.add("Family Therapy Counseling");
+        }
+        if (formData.isCounselingNone()) {
+            counseling.add("None");
+        }
+        
+        return listAsCSVString(counseling);
     }
     
     private String getAntiDepressentMediciation(PatientEncounterForm formData) {
@@ -482,14 +517,14 @@ public class PatientEncounterFormController {
         cell = new PdfPCell(new Phrase(formData.getEpilepsy()));
         table.addCell(cell);
         
-        cell = new PdfPCell(new Phrase("If Epilepsy, Number of Seizures per Week"));
+        cell = new PdfPCell(new Phrase("If Epilepsy, Number of Seizures per Month"));
         table.addCell(cell);
-        cell = new PdfPCell(new Phrase(formData.getNumberOfSeizuresPerWeek()));
+        cell = new PdfPCell(new Phrase(formData.getNumberOfSeizuresPerMonth()));
         table.addCell(cell);
         
-        cell = new PdfPCell(new Phrase("If Epilepsy, Is Depression Present?"));
+        cell = new PdfPCell(new Phrase("If Epilepsy, list any other symptoms, such as Depression"));
         table.addCell(cell);
-        cell = new PdfPCell(new Phrase(booleanToText(formData.getIsDepressionPresent())));
+        cell = new PdfPCell(new Phrase(formData.getEpilepticOtherSymptoms()));
         table.addCell(cell);
         
         // Row Five
