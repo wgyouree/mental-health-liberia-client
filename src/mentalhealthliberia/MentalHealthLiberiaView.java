@@ -166,8 +166,6 @@ public class MentalHealthLiberiaView extends FrameView {
         jLabel4 = new javax.swing.JLabel();
         clinicianID = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        reasonForVisit1 = new javax.swing.JRadioButton();
-        reasonForVisit2 = new javax.swing.JRadioButton();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         clinicianTrainingLevel = new javax.swing.JList();
@@ -180,6 +178,8 @@ public class MentalHealthLiberiaView extends FrameView {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         dateOfService = new javax.swing.JFormattedTextField();
+        reasonForVisit1 = new javax.swing.JCheckBox();
+        reasonForVisit2 = new javax.swing.JCheckBox();
         patientDemographicsOuterPanel = new javax.swing.JPanel();
         patientDemographicsPanel = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
@@ -248,8 +248,10 @@ public class MentalHealthLiberiaView extends FrameView {
         diagnosisPrimary = new javax.swing.JList();
         jLabel12 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        numberOfSeizuresPerWeek = new javax.swing.JTextField();
-        isDepressionPresent = new javax.swing.JCheckBox();
+        numberOfSeizuresPerMonth = new javax.swing.JTextField();
+        jLabel53 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        epilepticOtherSymptoms = new javax.swing.JTextArea();
         treatmentOuterPanel = new javax.swing.JPanel();
         treatmentPanel = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
@@ -295,14 +297,14 @@ public class MentalHealthLiberiaView extends FrameView {
         individualCounseling = new javax.swing.JList();
         jScrollPane17 = new javax.swing.JScrollPane();
         familyPsychoEducation = new javax.swing.JList();
-        counseling1 = new javax.swing.JRadioButton();
-        counseling2 = new javax.swing.JRadioButton();
-        counseling3 = new javax.swing.JRadioButton();
-        counseling4 = new javax.swing.JRadioButton();
         jLabel13 = new javax.swing.JLabel();
-        counseling5 = new javax.swing.JRadioButton();
         jLabel22 = new javax.swing.JLabel();
         medicationsNotAvailable = new javax.swing.JTextField();
+        counseling1 = new javax.swing.JCheckBox();
+        counseling2 = new javax.swing.JCheckBox();
+        counseling3 = new javax.swing.JCheckBox();
+        counseling4 = new javax.swing.JCheckBox();
+        counseling5 = new javax.swing.JCheckBox();
         dischargeOuterPanel = new javax.swing.JPanel();
         dischargePanel = new javax.swing.JPanel();
         jLabel46 = new javax.swing.JLabel();
@@ -318,7 +320,6 @@ public class MentalHealthLiberiaView extends FrameView {
         reportData1 = new javax.swing.JRadioButton();
         reportData2 = new javax.swing.JRadioButton();
         jLabel14 = new javax.swing.JLabel();
-        counselingGroup = new javax.swing.ButtonGroup();
         followupCareMedicationsGroup = new javax.swing.ButtonGroup();
         followupCareCounselingGroup = new javax.swing.ButtonGroup();
         permissionToReportGroup = new javax.swing.ButtonGroup();
@@ -504,25 +505,6 @@ public class MentalHealthLiberiaView extends FrameView {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         basicInformationPanel.add(jLabel5, gridBagConstraints);
 
-        reasonForVisit.add(reasonForVisit1);
-        reasonForVisit1.setSelected(true);
-        reasonForVisit1.setText(resourceMap.getString("reasonForVisit1.text")); // NOI18N
-        reasonForVisit1.setName("reasonForVisit1"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        basicInformationPanel.add(reasonForVisit1, gridBagConstraints);
-
-        reasonForVisit.add(reasonForVisit2);
-        reasonForVisit2.setText(resourceMap.getString("reasonForVisit2.text")); // NOI18N
-        reasonForVisit2.setName("reasonForVisit2"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        basicInformationPanel.add(reasonForVisit2, gridBagConstraints);
-
         jLabel6.setFont(resourceMap.getFont("clinicianTrainingLevelLabel.font")); // NOI18N
         jLabel6.setText(resourceMap.getString("clinicianTrainingLevelLabel.text")); // NOI18N
         jLabel6.setName("clinicianTrainingLevelLabel"); // NOI18N
@@ -635,6 +617,22 @@ public class MentalHealthLiberiaView extends FrameView {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         basicInformationPanel.add(dateOfService, gridBagConstraints);
+
+        reasonForVisit1.setText(resourceMap.getString("reasonForVisit1.text")); // NOI18N
+        reasonForVisit1.setName("reasonForVisit1"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        basicInformationPanel.add(reasonForVisit1, gridBagConstraints);
+
+        reasonForVisit2.setText(resourceMap.getString("reasonForVisit2.text")); // NOI18N
+        reasonForVisit2.setName("reasonForVisit2"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        basicInformationPanel.add(reasonForVisit2, gridBagConstraints);
 
         basicInformationOuterPanel.add(basicInformationPanel);
 
@@ -1136,7 +1134,7 @@ public class MentalHealthLiberiaView extends FrameView {
         jLabel34.setName("medicalConditionsLabel"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         diagnosisPanel.add(jLabel34, gridBagConstraints);
 
@@ -1149,7 +1147,7 @@ public class MentalHealthLiberiaView extends FrameView {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 26;
+        gridBagConstraints.gridy = 23;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         diagnosisPanel.add(jScrollPane14, gridBagConstraints);
 
@@ -1158,7 +1156,7 @@ public class MentalHealthLiberiaView extends FrameView {
         jLabel36.setName("secondaryConditionsLabel"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 25;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         diagnosisPanel.add(jLabel36, gridBagConstraints);
 
@@ -1171,7 +1169,7 @@ public class MentalHealthLiberiaView extends FrameView {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 26;
+        gridBagConstraints.gridy = 23;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         diagnosisPanel.add(jScrollPane15, gridBagConstraints);
 
@@ -1209,26 +1207,39 @@ public class MentalHealthLiberiaView extends FrameView {
         jLabel15.setName("jLabel15"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 19;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         diagnosisPanel.add(jLabel15, gridBagConstraints);
 
-        numberOfSeizuresPerWeek.setText(resourceMap.getString("numberOfSeizuresPerWeek.text")); // NOI18N
-        numberOfSeizuresPerWeek.setInputVerifier(new IntegerInputVerifier());
-        numberOfSeizuresPerWeek.setName("numberOfSeizuresPerWeek"); // NOI18N
+        numberOfSeizuresPerMonth.setText(resourceMap.getString("numberOfSeizuresPerMonth.text")); // NOI18N
+        numberOfSeizuresPerMonth.setInputVerifier(new IntegerInputVerifier());
+        numberOfSeizuresPerMonth.setName("numberOfSeizuresPerMonth"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        diagnosisPanel.add(numberOfSeizuresPerWeek, gridBagConstraints);
+        diagnosisPanel.add(numberOfSeizuresPerMonth, gridBagConstraints);
 
-        isDepressionPresent.setText(resourceMap.getString("isDepressionPresent.text")); // NOI18N
-        isDepressionPresent.setName("isDepressionPresent"); // NOI18N
+        jLabel53.setText(resourceMap.getString("jLabel53.text")); // NOI18N
+        jLabel53.setName("jLabel53"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 22;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        diagnosisPanel.add(isDepressionPresent, gridBagConstraints);
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        diagnosisPanel.add(jLabel53, gridBagConstraints);
+
+        jScrollPane3.setName("jScrollPane3"); // NOI18N
+
+        epilepticOtherSymptoms.setColumns(20);
+        epilepticOtherSymptoms.setRows(5);
+        epilepticOtherSymptoms.setName("epilepticOtherSymptoms"); // NOI18N
+        jScrollPane3.setViewportView(epilepticOtherSymptoms);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        diagnosisPanel.add(jScrollPane3, gridBagConstraints);
 
         diagnosisScrollPane.setViewportView(diagnosisPanel);
 
@@ -1596,42 +1607,6 @@ public class MentalHealthLiberiaView extends FrameView {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         treatmentPanel.add(jScrollPane17, gridBagConstraints);
 
-        counselingGroup.add(counseling1);
-        counseling1.setText(resourceMap.getString("counseling1.text")); // NOI18N
-        counseling1.setName("counseling1"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 19;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        treatmentPanel.add(counseling1, gridBagConstraints);
-
-        counselingGroup.add(counseling2);
-        counseling2.setText(resourceMap.getString("counseling2.text")); // NOI18N
-        counseling2.setName("counseling2"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 20;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        treatmentPanel.add(counseling2, gridBagConstraints);
-
-        counselingGroup.add(counseling3);
-        counseling3.setText(resourceMap.getString("counseling3.text")); // NOI18N
-        counseling3.setName("counseling3"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 21;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        treatmentPanel.add(counseling3, gridBagConstraints);
-
-        counselingGroup.add(counseling4);
-        counseling4.setText(resourceMap.getString("counseling4.text")); // NOI18N
-        counseling4.setName("counseling4"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 22;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        treatmentPanel.add(counseling4, gridBagConstraints);
-
         jLabel13.setFont(resourceMap.getFont("jLabel13.font")); // NOI18N
         jLabel13.setText(resourceMap.getString("jLabel13.text")); // NOI18N
         jLabel13.setName("jLabel13"); // NOI18N
@@ -1640,16 +1615,6 @@ public class MentalHealthLiberiaView extends FrameView {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 5;
         treatmentPanel.add(jLabel13, gridBagConstraints);
-
-        counselingGroup.add(counseling5);
-        counseling5.setSelected(true);
-        counseling5.setText(resourceMap.getString("counseling5.text")); // NOI18N
-        counseling5.setName("counseling5"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 23;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        treatmentPanel.add(counseling5, gridBagConstraints);
 
         jLabel22.setText(resourceMap.getString("jLabel22.text")); // NOI18N
         jLabel22.setName("jLabel22"); // NOI18N
@@ -1667,6 +1632,46 @@ public class MentalHealthLiberiaView extends FrameView {
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         treatmentPanel.add(medicationsNotAvailable, gridBagConstraints);
+
+        counseling1.setText(resourceMap.getString("counseling1.text")); // NOI18N
+        counseling1.setName("counseling1"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 19;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        treatmentPanel.add(counseling1, gridBagConstraints);
+
+        counseling2.setText(resourceMap.getString("counseling2.text")); // NOI18N
+        counseling2.setName("counseling2"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 20;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        treatmentPanel.add(counseling2, gridBagConstraints);
+
+        counseling3.setText(resourceMap.getString("counseling3.text")); // NOI18N
+        counseling3.setName("counseling3"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 21;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        treatmentPanel.add(counseling3, gridBagConstraints);
+
+        counseling4.setText(resourceMap.getString("counseling4.text")); // NOI18N
+        counseling4.setName("counseling4"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 22;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        treatmentPanel.add(counseling4, gridBagConstraints);
+
+        counseling5.setText(resourceMap.getString("counseling5.text")); // NOI18N
+        counseling5.setName("counseling5"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 23;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        treatmentPanel.add(counseling5, gridBagConstraints);
 
         treatmentOuterPanel.add(treatmentPanel);
 
@@ -1946,14 +1951,8 @@ private void loadFormValues(PatientEncounterForm formData) {
     this.dateOfService.setText(format.format(formData.getDateOfService()));
     this.clinicianID.setText(formData.getClinicianID());
     this.locationOfService.setText(formData.getLocationOfService());
-    this.reasonForVisit1.setSelected(false);
-    this.reasonForVisit2.setSelected(false);
-    if (formData.getReasonForVisit() != null &&
-        formData.getReasonForVisit().equals("Seeking mental health care")) {
-        this.reasonForVisit1.setSelected(true);
-    } else {
-        this.reasonForVisit2.setSelected(true);
-    }
+    this.reasonForVisit1.setSelected(formData.isReasonSeekingMentalHealthCare());
+    this.reasonForVisit2.setSelected(formData.isReasonOther());
     this.clinicianTrainingLevel.setSelectedValue(formData.getClinicianTrainingLevel(), true);
     this.referralSource.setSelectedValue(formData.getReferralSource(), true);
     
@@ -2123,8 +2122,8 @@ private void loadFormValues(PatientEncounterForm formData) {
                         "None"}));
     this.otherMedicalCondition.setText(formData.getOtherMedicalCondition());
     this.secondaryDiagnosis.setText(formData.getSecondaryDiagnosis());
-    this.numberOfSeizuresPerWeek.setText("" + formData.getNumberOfSeizuresPerWeek());
-    this.isDepressionPresent.setSelected(formData.getIsDepressionPresent());
+    this.numberOfSeizuresPerMonth.setText(formData.getNumberOfSeizuresPerMonth());
+    this.epilepticOtherSymptoms.setText(formData.getEpilepticOtherSymptoms());
     
     // Treatment
     this.fluoxetine.setSelected(formData.isFluoxetine());
@@ -2162,23 +2161,11 @@ private void loadFormValues(PatientEncounterForm formData) {
     this.trihexyphenidyl.setSelected(formData.isTrihexyphenidyl());
     this.otherAnticholinergic.setSelected(formData.isOtherAnticholinergic());
     
-    this.counseling1.setSelected(false);
-    this.counseling2.setSelected(false);
-    this.counseling3.setSelected(false);
-    this.counseling4.setSelected(false);
-    if (fieldIsCompleted(formData.getCounseling())) {
-        if (formData.getCounseling().equalsIgnoreCase("Individual counseling")) {
-            this.counseling1.setSelected(true);
-        } else if (formData.getCounseling().equalsIgnoreCase("Group counseling")) {
-            this.counseling2.setSelected(true);
-        } else if (formData.getCounseling().equalsIgnoreCase("Family psycho-education")) {
-            this.counseling3.setSelected(true);
-        } else if (formData.getCounseling().equalsIgnoreCase("Family therapy")) {
-            this.counseling4.setSelected(true);
-        } else if (formData.getCounseling().equalsIgnoreCase("None")) {
-            this.counseling5.setSelected(true);
-        }
-    }
+    this.counseling1.setSelected(formData.isCounselingIndividual());
+    this.counseling2.setSelected(formData.isCounselingGroup());
+    this.counseling3.setSelected(formData.isCounselingFamilyPsychoEducational());
+    this.counseling4.setSelected(formData.isCounselingFamilyTherapy());
+    this.counseling5.setSelected(formData.isCounselingNone());
     
     this.individualCounseling.setSelectedIndices(
             convertStringToIntArray(
@@ -2240,7 +2227,8 @@ private PatientEncounterForm buildForm() {
     }
     formData.setClinicianID(extractValue(this.clinicianID));
     formData.setLocationOfService(extractValue(this.locationOfService));
-    formData.setReasonForVisit(extractValue(this.reasonForVisit));
+    formData.setReasonSeekingMentalHealthCare(extractBoolean(this.reasonForVisit1));
+    formData.setReasonOther(extractBoolean(this.reasonForVisit2));
     formData.setClinicianTrainingLevel(extractValue(this.clinicianTrainingLevel));
     formData.setReferralSource(extractValue(this.referralSource));
     
@@ -2255,7 +2243,7 @@ private PatientEncounterForm buildForm() {
     formData.setAge(extractValue(this.age));
     formData.setCountyOfResidence(extractValue(this.countyOfResidence));
     formData.setDistanceTraveled(extractValue(this.distanceTraveled));
-    formData.setNumberOfDaysInLifeRole(Integer.parseInt(this.numberOfDaysInLifeRole.getText()));
+    formData.setNumberOfDaysInLifeRole(extractValue(this.numberOfDaysInLifeRole));
     formData.setMaritalStatus(extractValue(this.maritalStatus));
     formData.setEducation(extractValue(this.education));
     
@@ -2276,8 +2264,8 @@ private PatientEncounterForm buildForm() {
     formData.setSubstanceAbuseDisorder(extractValue(this.substanceAbuseDisorder));
     formData.setSubstanceAbuseDisorder2(extractValue(this.substanceAbuseDisorder2));
     formData.setEpilepsy(extractValue(this.epilepsy));
-    formData.setNumberOfSeizuresPerWeek(Integer.parseInt(this.numberOfSeizuresPerWeek.getText()));
-    formData.setIsDepressionPresent(this.isDepressionPresent.isSelected());
+    formData.setNumberOfSeizuresPerMonth(extractValue(this.numberOfSeizuresPerMonth));
+    formData.setEpilepticOtherSymptoms(extractValue(this.epilepticOtherSymptoms));
     formData.setOtherMedicalCondition(extractValue(this.otherMedicalCondition));
     formData.setSecondaryDiagnosis(extractValue(this.secondaryDiagnosis));
     
@@ -2311,7 +2299,11 @@ private PatientEncounterForm buildForm() {
     formData.setOtherAntiepileptic(extractBoolean(this.otherAntiepileptic));
     formData.setTrihexyphenidyl(extractBoolean(this.trihexyphenidyl));
     formData.setOtherAnticholinergic(extractBoolean(this.otherAnticholinergic));
-    formData.setCounseling(extractValue(this.counselingGroup));
+    formData.setCounselingIndividual(extractBoolean(this.counseling1));
+    formData.setCounselingGroup(extractBoolean(this.counseling2));
+    formData.setCounselingFamilyPsychoEducational(extractBoolean(this.counseling3));
+    formData.setCounselingFamilyTherapy(extractBoolean(this.counseling4));
+    formData.setCounselingNone(extractBoolean(this.counseling5));
     formData.setIndividualCounseling(extractValue(this.individualCounseling));
     formData.setFamilyPsychoEducation(extractValue(this.familyPsychoEducation));
     formData.setMedicationsNotAvailable(this.medicationsNotAvailable.getText());
@@ -2481,8 +2473,8 @@ private void clearForm() {
     clearField(this.substanceAbuseDisorder);
     clearField(this.substanceAbuseDisorder2);
     clearField(this.epilepsy);
-    clearField(this.numberOfSeizuresPerWeek);
-    clearField(this.isDepressionPresent);
+    clearField(this.numberOfSeizuresPerMonth);
+    clearField(this.epilepticOtherSymptoms);
     clearField(this.otherMedicalCondition);
     clearField(this.secondaryDiagnosis);
 
@@ -2517,7 +2509,11 @@ private void clearForm() {
     clearField(this.otherAntiepileptic);
     clearField(this.trihexyphenidyl);
     clearField(this.otherAnticholinergic);
-    clearField(this.counselingGroup);
+    clearField(this.counseling1);
+    clearField(this.counseling2);
+    clearField(this.counseling3);
+    clearField(this.counseling4);
+    clearField(this.counseling5);
     clearField(this.individualCounseling);
     clearField(this.familyPsychoEducation);
     clearField(this.medicationsNotAvailable);
@@ -2586,12 +2582,11 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JList clinicianTrainingLevel;
     private javax.swing.JCheckBox clomipramine;
     private javax.swing.JCheckBox clonazepam;
-    private javax.swing.JRadioButton counseling1;
-    private javax.swing.JRadioButton counseling2;
-    private javax.swing.JRadioButton counseling3;
-    private javax.swing.JRadioButton counseling4;
-    private javax.swing.JRadioButton counseling5;
-    private javax.swing.ButtonGroup counselingGroup;
+    private javax.swing.JCheckBox counseling1;
+    private javax.swing.JCheckBox counseling2;
+    private javax.swing.JCheckBox counseling3;
+    private javax.swing.JCheckBox counseling4;
+    private javax.swing.JCheckBox counseling5;
     private javax.swing.JComboBox countyOfResidence;
     private javax.swing.JFormattedTextField dateOfService;
     private javax.swing.JCheckBox depakote;
@@ -2606,6 +2601,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JTextField distanceTraveled;
     private javax.swing.JList education;
     private javax.swing.JList epilepsy;
+    private javax.swing.JTextArea epilepticOtherSymptoms;
     private javax.swing.JCheckBox escitalopram;
     private javax.swing.JTextField euroqol;
     private javax.swing.JList familyPsychoEducation;
@@ -2623,7 +2619,6 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JCheckBox haloperidalDecanoatInjection;
     private javax.swing.JCheckBox imipramine;
     private javax.swing.JList individualCounseling;
-    private javax.swing.JCheckBox isDepressionPresent;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2673,6 +2668,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -2689,6 +2685,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
@@ -2708,7 +2705,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JList moodDisorder;
     private javax.swing.JMenuItem newMenuItem;
     private javax.swing.JTextField numberOfDaysInLifeRole;
-    private javax.swing.JTextField numberOfSeizuresPerWeek;
+    private javax.swing.JTextField numberOfSeizuresPerMonth;
     private javax.swing.JCheckBox otherAnticholinergic;
     private javax.swing.JCheckBox otherAntidepressant;
     private javax.swing.JCheckBox otherAntiepileptic;
@@ -2727,8 +2724,8 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JProgressBar progressBar;
     private javax.swing.JList psychoticDisorder;
     private javax.swing.ButtonGroup reasonForVisit;
-    private javax.swing.JRadioButton reasonForVisit1;
-    private javax.swing.JRadioButton reasonForVisit2;
+    private javax.swing.JCheckBox reasonForVisit1;
+    private javax.swing.JCheckBox reasonForVisit2;
     private javax.swing.JList referralSource;
     private javax.swing.JRadioButton reportData1;
     private javax.swing.JRadioButton reportData2;
