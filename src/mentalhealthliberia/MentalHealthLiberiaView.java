@@ -609,8 +609,8 @@ public class MentalHealthLiberiaView extends FrameView {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         basicInformationPanel.add(jLabel10, gridBagConstraints);
 
-        dateOfService.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("M/d/yyyy"))));
-        dateOfService.setText((new SimpleDateFormat("MM/dd/yyyy")).format(new Date()));
+        dateOfService.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("MM/dd/yyyy HH:mm:ss"))));
+        dateOfService.setText(new java.text.SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(new Date()));
         dateOfService.setName("dateOfService"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1947,7 +1947,7 @@ private int[] convertStringToIntArray(String csv, String[] values) {
 private void loadFormValues(PatientEncounterForm formData) {
     
     // Basic Information
-    DateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+    DateFormat format = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
     this.dateOfService.setText(format.format(formData.getDateOfService()));
     this.clinicianID.setText(formData.getClinicianID());
     this.locationOfService.setText(formData.getLocationOfService());
@@ -2217,7 +2217,7 @@ private PatientEncounterForm buildForm() {
     PatientEncounterForm formData = new PatientEncounterForm();
     
     // Basic Information
-    DateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+    DateFormat format = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
     try {
         if (this.dateOfService.getText() != null && !this.dateOfService.getText().equals("")) {
             formData.setDateOfService(format.parse(this.dateOfService.getText()));
