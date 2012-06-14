@@ -89,7 +89,7 @@ public class PatientEncounterFormController {
         // Row One
         PdfPCell cell = new PdfPCell(new Phrase("Date of Service"));
         table.addCell(cell);
-        DateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+        DateFormat format = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
         cell = new PdfPCell(new Phrase(format.format(formData.getDateOfService())));
         table.addCell(cell);
 

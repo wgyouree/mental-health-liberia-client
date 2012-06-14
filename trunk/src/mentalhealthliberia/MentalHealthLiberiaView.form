@@ -469,10 +469,10 @@
                 <Component class="javax.swing.JFormattedTextField" name="dateOfService">
                   <Properties>
                     <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                      <Format format="M/d/yyyy" subtype="-1" type="1"/>
+                      <Format format="MM/dd/yyyy HH:mm:ss" subtype="-1" type="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="(new SimpleDateFormat(&quot;MM/dd/yyyy&quot;)).format(new Date())" type="code"/>
+                      <Connection code="new java.text.SimpleDateFormat(&quot;MM/dd/yyyy HH:mm:ss&quot;).format(new Date())" type="code"/>
                     </Property>
                     <Property name="name" type="java.lang.String" value="dateOfService" noResource="true"/>
                   </Properties>

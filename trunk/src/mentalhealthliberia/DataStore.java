@@ -20,7 +20,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -160,21 +159,23 @@ public class DataStore {
         File directory = new File(MentalHealthLiberiaApp.getApplication().getDataDirectory() + FORM_DIR);
         try {
             for (File file : directory.listFiles()) {
-                String jsonString = "";
-                StringBuilder fileData = new StringBuilder(1000);
-                BufferedReader reader = new BufferedReader(new FileReader(file));
-                char[] buf = new char[1024];
-                int numRead=0;
-                while((numRead=reader.read(buf)) != -1){
-                    fileData.append(buf, 0, numRead);
+                if (!file.isDirectory()) {
+                    String jsonString = "";
+                    StringBuilder fileData = new StringBuilder(1000);
+                    BufferedReader reader = new BufferedReader(new FileReader(file));
+                    char[] buf = new char[1024];
+                    int numRead=0;
+                    while((numRead=reader.read(buf)) != -1){
+                        fileData.append(buf, 0, numRead);
+                    }
+                    reader.close();
+                    jsonString = fileData.toString();
+
+                    PatientEncounterForm form = new JSONDeserializer<PatientEncounterForm>()
+                            .deserialize(jsonString);
+
+                    forms.add(form);
                 }
-                reader.close();
-                jsonString = fileData.toString();
-
-                PatientEncounterForm form = new JSONDeserializer<PatientEncounterForm>()
-                        .deserialize(jsonString);
-
-                forms.add(form);
             }
         } catch (Exception e) {
             System.err.println("File does not appear to be valid MHL file: " + e.getMessage());
