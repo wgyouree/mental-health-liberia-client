@@ -32,6 +32,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -1945,6 +1946,8 @@ private String extractValue(Object component) {
         }
     } else if (component instanceof JTextField) {
         return ((JTextField)component).getText();
+    } else if (component instanceof JTextArea) {
+        return ((JTextArea)component).getText();
     } else if (component instanceof ButtonGroup) {
         ButtonGroup group = (ButtonGroup)component;
         Enumeration<AbstractButton> buttons = group.getElements();
