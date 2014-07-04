@@ -308,6 +308,22 @@ public class PatientEncounterForm implements Serializable {
     public String getEpilepticOtherSymptoms() {
         return epilepticOtherSymptoms;
     }
+
+    public String getDevelopmentalDisability() {
+        return developmentalDisability;
+    }
+
+    public String getDevelopmentalDisabilityOther() {
+        return developmentalDisabilityOther;
+    }
+    
+    public String getChildhoodMentalHealthDisorder() {
+        return childhoodMentalHealthDisorder;
+    }
+    
+    public String getChildhoodMentalHealthDisorderOther() {
+        return childhoodMentalHealthDisorderOther;
+    }
     
     public String getMedicationsNotAvailable() {
         return medicationsNotAvailable;
@@ -620,6 +636,22 @@ public class PatientEncounterForm implements Serializable {
     public void setEpilepticOtherSymptoms(String epilepticOtherSymptoms) {
         this.epilepticOtherSymptoms = epilepticOtherSymptoms;
     }
+
+    public void setDevelopmentalDisability(String developmentalDisability) {
+        this.developmentalDisability = developmentalDisability;
+    }
+
+    public void setDevelopmentalDisabilityOther(String developmentalDisabilityOther) {
+        this.developmentalDisabilityOther = developmentalDisabilityOther;
+    }
+    
+    public void setChildhoodMentalHealthDisorder(String childhoodMentalHealthDisorder) {
+        this.childhoodMentalHealthDisorder = childhoodMentalHealthDisorder;
+    }
+    
+    public void setChildhoodMentalHealthDisorderOther(String childhoodMentalHealthDisorderOther) {
+        this.childhoodMentalHealthDisorderOther = childhoodMentalHealthDisorderOther;
+    }
     
     public void setMedicationsNotAvailable(String medicationsNotAvailable) {
         this.medicationsNotAvailable = medicationsNotAvailable;
@@ -690,6 +722,10 @@ public class PatientEncounterForm implements Serializable {
     private String epilepsy;
     private String numberOfSeizuresPerMonth;
     private String epilepticOtherSymptoms;
+    private String developmentalDisability;
+    private String developmentalDisabilityOther;
+    private String childhoodMentalHealthDisorder;
+    private String childhoodMentalHealthDisorderOther;
     private String otherMedicalCondition;
     private String secondaryDiagnosis;
     
