@@ -517,6 +517,7 @@ public class PatientEncounterFormController {
         cell = new PdfPCell(new Phrase(formData.getEpilepsy()));
         table.addCell(cell);
         
+        // Row Five
         cell = new PdfPCell(new Phrase("If Epilepsy, Number of Seizures per Month"));
         table.addCell(cell);
         cell = new PdfPCell(new Phrase(formData.getNumberOfSeizuresPerMonth()));
@@ -527,7 +528,29 @@ public class PatientEncounterFormController {
         cell = new PdfPCell(new Phrase(formData.getEpilepticOtherSymptoms()));
         table.addCell(cell);
         
-        // Row Five
+        // Row Six
+        cell = new PdfPCell(new Phrase("Developmental Disability"));
+        table.addCell(cell);
+        cell = new PdfPCell(new Phrase(formData.getDevelopmentalDisability()));
+        table.addCell(cell);
+        
+        cell = new PdfPCell(new Phrase("If Other, please specify"));
+        table.addCell(cell);
+        cell = new PdfPCell(new Phrase(formData.getDevelopmentalDisabilityOther()));
+        table.addCell(cell);
+        
+        // Row Seven
+        cell = new PdfPCell(new Phrase("Childhood Mental Health Disorder"));
+        table.addCell(cell);
+        cell = new PdfPCell(new Phrase(formData.getChildhoodMentalHealthDisorder()));
+        table.addCell(cell);
+        
+        cell = new PdfPCell(new Phrase("If Other, please specify"));
+        table.addCell(cell);
+        cell = new PdfPCell(new Phrase(formData.getChildhoodMentalHealthDisorderOther()));
+        table.addCell(cell);
+        
+        // Row Eight
         cell = new PdfPCell(new Phrase("Relevant Other Medical Conditions"));
         table.addCell(cell);
         cell = new PdfPCell(new Phrase(formData.getOtherMedicalCondition()));
