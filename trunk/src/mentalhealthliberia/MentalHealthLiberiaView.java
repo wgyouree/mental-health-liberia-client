@@ -449,7 +449,7 @@ public class MentalHealthLiberiaView extends FrameView {
         basicInformationOuterPanel.setPreferredSize(new java.awt.Dimension(800, 600));
 
         basicInformationPanel.setName("basicInformationPanel"); // NOI18N
-        basicInformationPanel.setPreferredSize(new java.awt.Dimension(600, 407));
+        basicInformationPanel.setPreferredSize(new java.awt.Dimension(600, 607));
         basicInformationPanel.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(resourceMap.getFont("basicInformationLabel.font")); // NOI18N
@@ -521,11 +521,12 @@ public class MentalHealthLiberiaView extends FrameView {
         jLabel6.setText(resourceMap.getString("clinicianTrainingLevelLabel.text")); // NOI18N
         jLabel6.setName("clinicianTrainingLevelLabel"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         basicInformationPanel.add(jLabel6, gridBagConstraints);
 
+        jScrollPane1.setMinimumSize(epilepsy.getMinimumSize());
         jScrollPane1.setName("jScrollPane1"); // NOI18N
 
         clinicianTrainingLevel.setModel(new javax.swing.AbstractListModel() {
@@ -538,8 +539,8 @@ public class MentalHealthLiberiaView extends FrameView {
         jScrollPane1.setViewportView(clinicianTrainingLevel);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.gridheight = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         basicInformationPanel.add(jScrollPane1, gridBagConstraints);
@@ -585,10 +586,11 @@ public class MentalHealthLiberiaView extends FrameView {
         jLabel8.setName("referralSourceLabel"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         basicInformationPanel.add(jLabel8, gridBagConstraints);
 
+        jScrollPane2.setMinimumSize(epilepsy.getMinimumSize());
         jScrollPane2.setName("jScrollPane2"); // NOI18N
 
         referralSource.setModel(new javax.swing.AbstractListModel() {
@@ -601,7 +603,7 @@ public class MentalHealthLiberiaView extends FrameView {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.gridheight = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         basicInformationPanel.add(jScrollPane2, gridBagConstraints);
