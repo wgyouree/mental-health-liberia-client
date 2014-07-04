@@ -2513,6 +2513,8 @@ void uploadFiles(String username, String password) {
 private void clearField(Object field) {
     if (field instanceof JTextField) {
         ((JTextField)field).setText("");
+    } else if (field instanceof JTextArea) {
+        ((JTextArea)field).setText("");
     } else if (field instanceof ButtonGroup) {
         ((ButtonGroup)field).clearSelection();
     } else if (field instanceof JCheckBox) {
