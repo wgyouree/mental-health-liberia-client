@@ -8,13 +8,13 @@ import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -66,16 +66,26 @@ public class DataStore {
                 boolean versionOutOfDate = false;
 
                 // Send data
+                System.out.println(MentalHealthLiberiaApp.getApplication().getUploadUrl());
                 URL url = new URL(MentalHealthLiberiaApp.getApplication().getUploadUrl());
-                HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+                HttpURLConnection conn = (HttpURLConnection)url.openConnection();           
                 conn.setDoOutput(true);
-                OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-                wr.write(query);
+                conn.setDoInput(true);
+                conn.setInstanceFollowRedirects(false); 
+                conn.setRequestMethod("POST"); 
+                conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded"); 
+                conn.setRequestProperty("charset", charset);
+                conn.setRequestProperty("Content-Length", "" + Integer.toString(query.getBytes().length));
+                conn.setUseCaches (false);
+                DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
+                wr.writeBytes(query);
                 wr.flush();
+                wr.close();
 
                 // Get the response
                 if (conn.getResponseCode() != 200) {
                     wr.close();
+                    conn.disconnect();
                     return FileStatus.READY;
                 } else {
                     BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -90,6 +100,7 @@ public class DataStore {
                     rd.close();
                 }
 
+                conn.disconnect();
                 wr.close();
 
                 if (versionOutOfDate) {
@@ -191,7 +202,7 @@ public class DataStore {
         for (int i = 0; i < files.length; i++) {
 
             // upload pending file
-            if (sendFile(files[i], username, password) != DataStore.FileStatus.READY) {
+            if (sendFile(files[i], username, password) == DataStore.FileStatus.READY) {
                 // delete pending file
                 files[i].delete();
             } else {
