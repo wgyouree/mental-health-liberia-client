@@ -1,0 +1,1 @@
+The Java client application for the Mental Health Liberia project.
